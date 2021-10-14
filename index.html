@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <div class="tabsPanel">
+        <div class="tabsLinks">
+            <a href="#" class="tabLink active">Часы</a>
+            <a href="#" class="tabLink">Секундомер <span class="indicator"></span></a>
+        </div>
+        <div class="tabsContent">
+            <div class="tabsContent__item clock active">
+                <div class="arrowClock">
+                    <div class="arrowClock__number">
+                        <div class="arrowClock__number-num num12">12</div>
+                        <div class="arrowClock__number-num num3">3</div>
+                        <div class="arrowClock__number-num num6">6</div>
+                        <div class="arrowClock__number-num num9">9</div>
+                        <div class="arrowClock__number-arr num1-7"></div>
+                        <div class="arrowClock__number-arr num2-8"></div>
+                        <div class="arrowClock__number-arr num4-10"></div>
+                        <div class="arrowClock__number-arr num5-11"></div>
+                    </div>
+
+                    <div class="s"></div>
+                    <div class="m"></div>
+                    <div class="h"></div>
+                </div>
+                <div class="arrowNumber">
+                    <div class="hours">00</div>
+                    <div class="minutes">00</div>
+                </div>
+            </div>
+            <div class="tabsContent__item stopwatch">
+                <div class="stopwatch__num">
+                    <div class="stopwatch__num--des"><span class="stopwatch__hours">00</span>Час.</div>
+                    <div class="stopwatch__num--des"><span class="stopwatch__minutes">00</span>Мин.</div>
+                    <div class="stopwatch__num--des"><span class="stopwatch__seconds">00</span>Сек.</div>
+                </div>
+                <button type="button" class="stopwatch__btn">start</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
