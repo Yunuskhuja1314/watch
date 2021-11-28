@@ -12,8 +12,6 @@ function clock(){
         minutes = time.getMinutes(),
         hours = time.getHours();
 
-    // console.log(hours, minutes, seconds);
-
     arrowHours.style = `transform: rotate(${hours*30}deg)`;
     arrowMinutes.style = `transform: rotate(${minutes*6}deg)`;
     arrowSeconds.style = `transform: rotate(${seconds*6}deg);`;
@@ -31,7 +29,6 @@ const links = document.querySelectorAll('.tabLink'),
       for (let i = 0; i < links.length; i++) {
           links[i].addEventListener('click', function(e){
               e.preventDefault();
-            //   console.log(links[i]);
               for (let ii = 0; ii < links.length; ii++){
                   links[ii].classList.remove('active')
                   items[ii].classList.remove('active')
@@ -48,7 +45,6 @@ const watchBtn = document.querySelector('.stopwatch__btn'),
       indicator = document.querySelector('.indicator');
 
 watchBtn.addEventListener('click', function(){
-    console.log(watchBtn.innerHTML);
     if (watchBtn.innerHTML == 'start') {
         watchBtn.innerHTML = 'stop';
         indicator.classList.add('active');
@@ -60,16 +56,30 @@ watchBtn.addEventListener('click', function(){
     }else{
         watchBtn.innerHTML = 'start';
         indicator.classList.remove('active__stop');
+        watchSeconds.innerHTML = `00`;
+        watchMinutes.innerHTML = `00`;
+        watchHours.innerHTML = `00`;
     }
 })
 
 function stopWatch(element, i) {
-    if (i == 59) {
-        i = 0;
-    }else{
-        i++
-        console.log(i++);
+    if (element.innerHTML == 'stop') {
+        if (i == 60) {
+            i = 0;
+            watchMinutes.innerHTML++;
+            if (watchMinutes.innerHTML == 60) {
+                watchHours.innerHTML++;
+                watchMinutes.innerHTML = 0;
+            }
+        }else{
+            if (watchSeconds.innerHTML < 9) {
+                watchSeconds.innerHTML = `0${i}`;
+            }else{
+                watchSeconds.innerHTML = i;
+            }
+            i++;
+        }
+        setTimeout(function(){stopWatch(element, i)}, 50);
     }
-    setTimeout(function(){stopWatch(element, i)}, 1000);
 }
 
